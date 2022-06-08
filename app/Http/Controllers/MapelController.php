@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class MapelController extends Controller
 {
     public function index(){
-        $data = Mapel::paginate(10) ;
+        $data = Mapel::paginate(5) ;
         return view('Mapel.table', compact('data'));
     }
 

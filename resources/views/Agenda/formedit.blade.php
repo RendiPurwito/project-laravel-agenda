@@ -20,8 +20,9 @@
                                         <div class="form-group">
                                             <label for="first-name-column" class="form-label">Nama Guru</label>
                                             <select class="form-select" name="guru_id" value="nama_guru">
-                                                @foreach($dataguru as $datagr)
-                                                    <option value="{{$datagr->id}}">{{$datagr->nama_guru}}</option>
+                                                <option selected>{{$data->guru_id}}</option>
+                                                @foreach($dataguru as $guru)
+                                                    <option value="{{$guru->id}}">{{$guru->nama_guru}}</option>
                                                 @endforeach
                                             </select>
                                         </div>

@@ -11,7 +11,7 @@ class KelasController extends Controller
     public function index(){
         $data = Kelas::select('kelas.*', 'gurus.*', 'kelas.id as id_kelas')
 		->leftJoin('gurus', 'kelas.guru_id', 'gurus.id')
-		->paginate(10);
+		->paginate(5);
         return view('Kelas.table', compact('data'));
     }
 

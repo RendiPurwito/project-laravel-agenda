@@ -20,17 +20,10 @@ use App\Http\Controllers\AgendaController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Home
-Route::get('/', function () {
-    return view('welcome');
-});
 
-// Registration
-Route::get('/registration', [LoginController::class, 'register'])->name('registration');
-Route::post('/saveregistration', [LoginController::class, 'saveRegister'])->name('saveregistration');
 
 // Login
-Route::get('/login', function () {
+Route::get('/', function () {
     return view('User.login');
 })->name('login');
 
@@ -40,8 +33,16 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Auth
 Route::group(['middleware' => ['auth', 'checkrole:administrator']], function () {
+    // Registration
+    Route::get('/registration', [LoginController::class, 'register'])->name('registration');
+    Route::post('/adminhome', [LoginController::class, 'saveregister'])->name('adminhome');
+
+    // Route::post('/saveregistration', [LoginController::class, 'saveregister'])->name('saveregistration');
+
     // Home
-    route::get('/adminhome', [HomeController::class, 'adminHome'])->name('adminhome');
+    Route::get('/adminhome', [HomeController::class, 'adminhome'])->name('adminhome');
+    
+
     // Mapel
     Route::get('/mapel', [MapelController::class, 'index'])->name('mapel');
     Route::get('/adddatamapel',[MapelController::class, 'create'])->name('adddatamapel');
@@ -77,6 +78,5 @@ Route::group(['middleware' => ['auth', 'checkrole:administrator']], function () 
 
 Route::group(['middleware' => ['auth', 'checkrole:teacher']], function () {
     route::get('/home', [HomeController::class, 'index'])->name('home');
-    route::get('/homecreate', [HomeController::class, 'create'])->name('homecreate');
-    route::post('/homestore', [HomeController::class, 'store'])->name('homestore');
+    route::post('/storehome', [HomeController::class, 'store'])->name('storehome');
 });

@@ -1,6 +1,7 @@
 @extends('layout.voler')
 @section('title', 'Guru Home Page')
 @section('content')
+
 {{-- Form --}}
 <section id="multiple-column-form">
     <div class="row match-height justify-content-center">
@@ -8,7 +9,7 @@
             <div class="card pt-3">
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form" action="/homestore" method="post" enctype="multipart/form-data">
+                        <form class="form" action="/storehome" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row justify-content-center">
                                 <div class="col-md-5 col-10">
@@ -16,8 +17,8 @@
                                         <label for="first-name-column" class="form-label">Nama Guru</label>
                                         <select class="form-select" name="guru_id">
                                             <option selected>Select Guru</option>
-                                            @foreach($dataguru as $data)
-                                                <option value="{{$data->id}}">{{$data->nama_guru}}</option>
+                                            @foreach($dataguru as $guru)
+                                                <option value="{{$guru->id}}">{{$guru->nama_guru}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -35,7 +36,7 @@
                                         @enderror
                                     </div>
                                 </div> --}}
-
+                               
                                 <div class="col-md-5 col-10">
                                     <div class="form-group">
                                         <label for="first-name-column" class="form-label">Materi</label>
@@ -149,6 +150,7 @@
     </div>
 </section>
 
+{{-- @dd($data) --}}
 {{-- Table --}}
 <section class="section">
     <div class="card">
@@ -197,6 +199,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                {{ $data->links() }}
             </div>
         </div>
     </div>

@@ -21,16 +21,5 @@ class CheckRole
             return $next($request);
         }
         return redirect('/');
-        // if (! Auth::check()) {
-        //     return redirect()->route('login');
-        // }
-    
-        // if (Auth::user()->role == 'administrator') {
-        //     return redirect()->route('adminhome');
-        // }
-    
-        // if (Auth::user()->role == 'teacher') {
-        //     return redirect()->route('home');
-        // }
     }
 }

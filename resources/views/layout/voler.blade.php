@@ -83,6 +83,11 @@
                                 <span>Tabel Agenda</span>
                             </a>
                         </li>
+
+                        <a href="{{route('registration')}}" class='sidebar-link'>
+                            <i data-feather="user" width="20"></i> 
+                            <span>Register Guru</span>
+                        </a>
                         @endif
                     </ul>
                 </div>
