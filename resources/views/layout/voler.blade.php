@@ -31,15 +31,6 @@
                 <div class="sidebar-menu">
                     <ul class="menu">
                         <li class='sidebar-title'>Main Menu</li>
-                        @if(auth()->user()->role == 'administrator')
-                        <li class="sidebar-item">
-                            <a href="{{route('adminhome')}}" class='sidebar-link'>
-                                <i data-feather="home" width="20"></i>
-                                <span>Dashboard</span>
-                            </a>
-                        </li>
-                        @endif
-
                         @if(auth()->user()->role == 'teacher')
                         <li class="sidebar-item">
                             <a href="{{route('home')}}" class='sidebar-link'>
@@ -49,43 +40,53 @@
                         </li>
                         @endif
 
-                        {{-- <li class="sidebar-item  ">
-                            <a href="{{route('mapel')}}" class='sidebar-link'>
-                        <i data-feather="grid" width="20"></i>
-                        <span>Tabel Mata Pelajaran</span>
-                        </a>
-                        </li> --}}
                         @if(auth()->user()->role =='administrator')
-                        <li class="sidebar-item  ">
-                            <a href="{{route('mapel')}}" class='sidebar-link'>
-                                <i data-feather="grid" width="20"></i>
-                                <span>Tabel Mapel</span>
+                        <li class="sidebar-item">
+                            <a href="{{route('adminhome')}}" class='sidebar-link'>
+                                <i data-feather="home" width="20"></i>
+                                <span>Dashboard</span>
                             </a>
                         </li>
 
-                        <li class="sidebar-item  ">
-                            <a href="{{route('kelas')}}" class='sidebar-link'>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
                                 <i data-feather="grid" width="20"></i>
-                                <span>Tabel Kelas</span>
+                                <span>Tabel</span>
                             </a>
-                        </li>
 
-                        <li class="sidebar-item  ">
-                            <a href="{{route('guru')}}" class='sidebar-link'>
-                                <i data-feather="grid" width="20"></i>
-                                <span>Tabel Guru</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item  ">
-                            <a href="{{route('agenda')}}" class='sidebar-link'>
-                                <i data-feather="grid" width="20"></i>
-                                <span>Tabel Agenda</span>
-                            </a>
+                            <ul class="submenu">
+                                <li>
+                                    <a href="{{route('mapel')}}" class='sidebar-link'>
+                                        <i data-feather="grid" width="20"></i>
+                                        <span>Tabel Mapel</span>
+                                    </a>
+                                </li>
+    
+                                <li>
+                                    <a href="{{route('kelas')}}" class='sidebar-link'>
+                                        <i data-feather="grid" width="20"></i>
+                                        <span>Tabel Kelas</span>
+                                    </a>
+                                </li>
+    
+                                <li>
+                                    <a href="{{route('guru')}}" class='sidebar-link'>
+                                        <i data-feather="grid" width="20"></i>
+                                        <span>Tabel Guru</span>
+                                    </a>
+                                </li>
+    
+                                <li>
+                                    <a href="{{route('agenda')}}" class='sidebar-link'>
+                                        <i data-feather="grid" width="20"></i>
+                                        <span>Tabel Agenda</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
 
                         <a href="{{route('registration')}}" class='sidebar-link'>
-                            <i data-feather="user" width="20"></i> 
+                            <i data-feather="user" width="20"></i>
                             <span>Register Guru</span>
                         </a>
                         @endif

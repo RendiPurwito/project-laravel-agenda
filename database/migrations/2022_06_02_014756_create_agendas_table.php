@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('agendas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('guru_id'); // ngambil data namaguru, mapel
+            $table->foreignId('guru_id'); 
             $table->string('materi');
             $table->string('jam_mulai');
             $table->string('jam_selesai');
             $table->string('absensi');
-            $table->foreignId('kelas_id'); // ngambil data kelas
+            $table->foreignId('kelas_id'); 
             $table->enum('jenis', ['ptm', 'pjj']);
             $table->string('link')->nullable();
             $table->string('dokumentasi');

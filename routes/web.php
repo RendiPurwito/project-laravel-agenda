@@ -37,11 +37,8 @@ Route::group(['middleware' => ['auth', 'checkrole:administrator']], function () 
     Route::get('/registration', [LoginController::class, 'register'])->name('registration');
     Route::post('/adminhome', [LoginController::class, 'saveregister'])->name('adminhome');
 
-    // Route::post('/saveregistration', [LoginController::class, 'saveregister'])->name('saveregistration');
-
     // Home
-    Route::get('/adminhome', [HomeController::class, 'adminhome'])->name('adminhome');
-    
+    Route::get('/adminhome', [HomeController::class, 'adminhome'])->name('adminhome');    
 
     // Mapel
     Route::get('/mapel', [MapelController::class, 'index'])->name('mapel');

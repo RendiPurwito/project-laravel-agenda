@@ -10,7 +10,10 @@ use Illuminate\Http\Request;
 class GuruController extends Controller
 {
     public function index(){
-        $data = Guru::with('userguru','mapelguru')->paginate(5);
+        $data = Guru::select('gurus.*', 'users.*', 'mapels.*', 'gurus.id as id_guru')
+		->leftJoin('users', 'users.id', 'gurus.user_id')
+		->leftJoin('mapels', 'mapels.id', 'gurus.mapel_id')
+        ->paginate(5);
         return view('Guru.table', ['data' => $data]);
     }
 

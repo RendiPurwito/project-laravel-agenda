@@ -46,12 +46,18 @@
                                     <div class="col-10">
                                         <div class="form-group">
                                             <label for="first-name-column" class="form-label">Username</label>
-                                            <input list="browsers" name="user_id" class="form-control"
+                                            {{-- <input list="browsers" name="user_id" class="form-control"
                                                 id="exampleInputEmail1" value="{{$data->user_id}}">
                                             @foreach($datauser as $data)
                                             <datalist id="browsers">
                                                 <option value="{{$data->id}}">{{$data->email}}</option>
-                                            @endforeach
+                                            @endforeach --}}
+                                            <select class="form-select" name="user_id" value="{{$data->user_id}}">
+                                                <option selected>{{$data->user_id}}</option>
+                                                @foreach ($datauser as $user)
+                                                <option value="{{$user->id}}">{{$user->email}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-10 d-flex justify-content-end">

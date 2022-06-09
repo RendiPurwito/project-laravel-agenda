@@ -31,11 +31,11 @@
                                 <th scope="row">{{$index + $data->firstItem()}}</th>
                                 <td>{{$row->nama_guru}}</td>
                                 <td>{{$row->nip}}</td>
-                                <td>{{$row->mapelguru->mapel}}</td>
-                                <td>{{$row->userguru->email}}</td>
-                                <td>{{$row->userguru->password}}</td>
+                                <td>{{$row->mapel}}</td>
+                                <td>{{$row->email}}</td>
+                                <td>{{$row->password}}</td>
                                 <td>
-                                    <a href="/formeditguru/{{ $row->id }}" class="text-warning">
+                                    <a href="/formeditguru/{{ $row->id_guru }}" class="text-warning">
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                             width="18" height="18" fill="currentColor" class="bi bi-pencil-square"
                                             viewBox="0 0 16 16">
@@ -46,7 +46,7 @@
                                         </svg>
                                     </a>|
 
-                                    <a href="/deletedataguru/{{ $row->id }}" class="text-danger">
+                                    <a href="/deletedataguru/{{ $row->id_guru }}" class="text-danger">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                             fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                             <path
